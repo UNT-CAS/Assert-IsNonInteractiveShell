@@ -10,5 +10,5 @@ switch was used; or an abbreviation of the switch.
 
 # Links
 
-https://github.com/UNT-CAS-ITS/Test-IsNonInteractiveShell
-https://gitlab.com/UNT-CAS-ITS/Test-IsNonInteractiveShell
+- https://github.com/UNT-CAS-ITS/Test-IsNonInteractiveShell
+- https://gitlab.com/UNT-CAS-ITS/Test-IsNonInteractiveShell
