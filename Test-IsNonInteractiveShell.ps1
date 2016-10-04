@@ -11,13 +11,9 @@ switch was used; or an abbreviation of the switch.
 https://github.com/Vertigion/Test-IsNonInteractiveShell
 #>
 function Test-IsNonInteractiveShell {
-    if ([Environment]::UserInteractive) {
-        foreach ($arg in [Environment]::GetCommandLineArgs()) {
-            # Test each Arg for match of abbreviated '-NonInteractive' command.
-            if ($arg -match '-NonI.*') {
-                return $true
-            }
-        }
+    if ([Environment]::UserInteractive -and (-not ([Environment]::GetCommandLineArgs() | ?{ $_ -ilike '-NonI*' }))) {
+        # Test each Arg for match of abbreviated '-NonInteractive' command.
+        return $true
     }
 
     return $false
