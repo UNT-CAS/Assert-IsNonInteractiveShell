@@ -8,15 +8,16 @@ interactively. An example of not running interactively would be if the shell is 
 If we are running interactively, we check the Command Line Arguments to see if the `-NonInteractive` 
 switch was used; or an abbreviation of the switch.
 .LINK
-https://github.com/Vertigion/Test-IsNonInteractiveShell
+https://github.com/Vertigion/Assert-IsNonInteractiveShell
 #>
-function Test-IsNonInteractiveShell {
+function Assert-IsNonInteractiveShell {
     # Test each Arg for match of abbreviated '-NonInteractive' command.
     $NonInteractive = [Environment]::GetCommandLineArgs() | Where-Object{ $_ -like '-NonI*' }
 
     if ([Environment]::UserInteractive -and -not $NonInteractive) {
-        return $true
+        # We are in an interactive shell.
+        return $false
     }
 
-    return $false
+    return $true
 }
